@@ -5,16 +5,16 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
       - name: Setup Java JDK
         uses: actions/setup-java@v4.7.0
         with: 
           java-version: "17"
-          distribution: "oracle"
+          distribution: "microsoft"
       - run: mvn --batch-mode --update-snapshots verify
       - run: mkdir staging && cp target/*.jar staging
-      - name: Upload a build artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.0
         with: 
           name: Package_Java
           path: staging
